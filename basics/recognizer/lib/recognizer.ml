@@ -1,6 +1,13 @@
-let lang1 _ = failwith ""
+let rec lang1 l1 = match l1 with
+[] -> false
+|[a] -> if(a = 0 || a = 1) then true else false
+|a::tl -> if(a = 0 || a = 1) then lang1 tl else false
 
-let lang2 _ = failwith ""
+let rec lang2 l2 = match l2 with
+[] -> true
+|['1'] -> lang2 tl
+|['0'] -> List.for_all(fun x -> x <> '0') tl
+|_ -> false
 
 let lang3 _ = failwith ""
 
