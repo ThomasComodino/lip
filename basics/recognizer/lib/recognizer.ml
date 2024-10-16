@@ -9,9 +9,19 @@ let rec lang2 l2 = match l2 with
 |['0'] -> List.for_all(fun x -> x <> '0') tl
 |_ -> false
 
-let lang3 _ = failwith ""
+let rec aux  l = match l with
+[] -> false
+|['0'] -> true
+|_::tl -> aux tl
 
-let lang4 _ = failwith ""
+
+let rec lang3 l3 = match l3 with
+[] -> false
+|0::tl -> if(aux tl) then List.for_all(fun x -> x = 1 || x = 0) tl else false 
+|_ -> false
+
+let lang4 l4 = ((List.fold_left(fun aux2 x -> if(x = 1) then aux2 +1 else aux2) 0 l4 ) = 2)
+ && (List.for_all(fun x -> x = 1 || x = 0 ) l4)
 
 let lang5 _ = failwith ""
     
